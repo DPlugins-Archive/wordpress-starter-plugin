@@ -1,0 +1,12 @@
+/.wordpress-org
+/.git
+/.github
+/node_modules
+.yarn/*
+.distignore
+.gitignore
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+composer.json
+composer.lock

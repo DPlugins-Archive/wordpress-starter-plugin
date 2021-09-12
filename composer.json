@@ -1,0 +1,32 @@
+{
+    "name": "namespacename/subnamespacenames",
+    "type": "wordpress-plugin",
+    "description": "WordPress starter plugin",
+    "keywords": [],
+    "homepage": "https://yourcompanywebsite.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "YourCompanyName",
+            "email": "mail@yourcompanywebsite.com",
+            "homepage": "https://yourcompanywebsite.com"
+        }
+    ],
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.4|^8.0",
+        "composer/semver": "^3.2"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "NamespaceName\\SubNamespaceNames\\": "src/"
+        }
+    }
+}
