@@ -7,6 +7,19 @@ use Medoo\Medoo;
 use wpdb;
 
 /**
+ * Wrapper class of Medoo the simple database abstraction layer.
+ * This class is used to run database queries with Medoo.
+ * 
+ * To use this class, you need to include the Medoo library in your project.
+ * Run `composer require catfan/medoo` from your plugin root folder.
+ * 
+ * Medoo's object are available on `DB::db()` method.
+ * Example usage:
+ * - `DB::db()->select('*', DB::wpdb()->prefix.'users', ['user_email' => 'email@example.com']);`
+ * - `DB::db()->count('*', DB::wpdb()->prefix.'options', ['optiona_name[~]' => 'mypluginprefix_' ]);`
+ * 
+ * @see https://medoo.in/doc Please read the Medoo's documentation for all the available methods.
+ * 
  * @package NamespaceName\SubNamespaceNames
  * @since 1.0.0
  * @author YourCompanyName <mail@yourcompanywebsite.com>
@@ -67,6 +80,11 @@ class DB
 	{
 	}
 
+	/**
+	 * Get the wpdb object.
+	 * 
+	 * @return wpdb 
+	 */
 	public static function wpdb(): wpdb
 	{
 		/** @var wpdb $wpdb */
@@ -75,6 +93,13 @@ class DB
 		return $wpdb;
 	}
 
+	/**
+	 * Get the medoo object.
+	 * 
+	 * example: `DB::db()->select('*', DB::wpdb()->prefix.'table_name', ['id' => 1]);`
+	 * 
+	 * @return Medoo 
+	 */
 	public static function db(): Medoo
 	{
 		return self::getInstance()::$medoo;

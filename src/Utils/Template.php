@@ -6,6 +6,22 @@ use Exception;
 use League\Plates\Engine;
 
 /**
+ * Plate the native PHP template system.
+ * This class is used to run plate on WordPress.
+ * 
+ * To use this class, you need to include the Medoo library in your project.
+ * Run `composer require league/plates` from your plugin root folder.
+ * 
+ * Plate's object are available on `Template::template()` method.
+ * Example usage:
+ * - `Template::template()->addFolder('emails', '/path/to/email/templates');`
+ * - `echo Template::template()->render('partials/header');`
+ * - `echo Template::template()->render('profile', ['name' => 'Jonathan']);`
+ * - `<p>Hello <?=$this->e($name)?></p>`
+ * 
+ * @see http://platesphp.com/ Please read the Plate's documentation for complete usage instruction.
+ * 
+ * 
  * @package NamespaceName\SubNamespaceNames
  * @since 1.0.0
  * @author YourCompanyName <mail@yourcompanywebsite.com>

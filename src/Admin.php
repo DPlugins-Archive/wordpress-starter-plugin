@@ -3,6 +3,8 @@
 namespace NamespaceName\SubNamespaceNames;
 
 /**
+ * The plugin's admin pages and settings.
+ * 
  * @package NamespaceName\SubNamespaceNames
  * @since 1.0.0
  * @author YourCompanyName <mail@yourcompanywebsite.com>
@@ -10,10 +12,6 @@ namespace NamespaceName\SubNamespaceNames;
  */
 class Admin
 {
-	public static $enqueue_styles = [];
-	public static $enqueue_scripts = [];
-	public static $localize_scripts = [];
-
 	public function __construct()
 	{
 		add_action('admin_enqueue_scripts', function () {
@@ -55,10 +53,21 @@ class Admin
 	{
 		add_action('admin_enqueue_scripts', function () {
 			wp_enqueue_style('subnamespacenames/admin');
+			wp_enqueue_script('subnamespacenames/admin');
+			wp_localize_script('subnamespacenames/admin', 'subnamespacenames', [
+				'ajax_url' => admin_url('admin-ajax.php'),
+				'_wpnonce' => wp_create_nonce('subnamespacenames'),
+				'key_here' => 'value_here',
+			]);
 		});
 
 	}
 
+	/**
+	 * Render the admin page
+	 * 
+	 * @return void 
+	 */
 	public function admin_page_render()
 	{
 		echo '<h1>SubNamespaceNames<h1>';

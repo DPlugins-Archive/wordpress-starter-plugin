@@ -30,4 +30,7 @@ define('SUBNAMESPACENAMES_FILE', __FILE__);
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-\NamespaceName\SubNamespaceNames\SubNamespaceNames::run('0.0.1');
+/**
+ * Initialize the plugin.
+ */
+\NamespaceName\SubNamespaceNames\SubNamespaceNames::run('1.0.0');

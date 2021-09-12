@@ -4,8 +4,11 @@ namespace NamespaceName\SubNamespaceNames;
 
 use NamespaceName\SubNamespaceNames\Utils\EDD_SL_Plugin_Updater;
 use NamespaceName\SubNamespaceNames\Utils\Notice;
+use WP_Error;
 
 /**
+ * Plugin updater class. Handles the plugin update process. Integrated with Easy Digital Download's Software Licensing plugin.
+ * 
  * @package NamespaceName\SubNamespaceNames
  * @since 1.0.0
  * @author YourCompanyName <mail@yourcompanywebsite.com>
@@ -27,6 +30,11 @@ class PluginUpdater
 		return new EDD_SL_Plugin_Updater($this->payload['store_url'], $this->payload['plugin_file'], $this->payload);
 	}
 
+	/**
+	 * Check if the plugin have licensed and activated.
+	 * 
+	 * @return mixed 
+	 */
 	public function isActivated()
 	{
 		$license = get_transient("{$this->plugin_id}_license_seed");
@@ -94,6 +102,11 @@ class PluginUpdater
 		]);
 	}
 
+	/**
+	 * Deregister the current site from the license server.
+	 * 
+	 * @return array|WP_Error 
+	 */
 	public function deactivate()
 	{
 		delete_transient("{$this->plugin_id}_license_seed");
@@ -101,6 +114,12 @@ class PluginUpdater
 		return $this->apiRequest('deactivate_license');
 	}
 
+	/**
+	 * Register the current site to the license server.
+	 * 
+	 * @param null|string $license 
+	 * @return array|WP_Error 
+	 */
 	public function activate(?string $license)
 	{
 		if ($license) {

@@ -5,6 +5,8 @@ namespace NamespaceName\SubNamespaceNames;
 use NamespaceName\SubNamespaceNames\Utils\Utils;
 
 /**
+ * The plugin main class.
+ * 
  * @package NamespaceName\SubNamespaceNames
  * @since 1.0.0
  * @author YourCompanyName <mail@yourcompanywebsite.com>
@@ -12,11 +14,27 @@ use NamespaceName\SubNamespaceNames\Utils\Utils;
  */
 class SubNamespaceNames
 {
+    /**
+     * The plugin version
+     * 
+     * @var string
+     */
     public static $version;
+
+    /**
+     * The plugin slug/unique identifier
+     * @var string
+     */
     public static $slug = 'subnamespacenames';
 
     public static $updater;
 
+    /**
+     * Inistialize the plugin
+     * 
+     * @param mixed $version 
+     * @return void 
+     */
     public function __construct($version)
     {
         self::$version = $version;
@@ -44,11 +62,20 @@ class SubNamespaceNames
         });
     }
 
+    /**
+     * Function that runs on `init` hook.
+     * @return void 
+     */
     public function init()
     {
         // self::plugin_update();
     }
 
+    /**
+     * Function that check for plugin updates
+     * 
+     * @return void 
+     */
     protected static function plugin_update()
     {
         if (self::$updater->isActivated()) {
@@ -59,6 +86,12 @@ class SubNamespaceNames
         }
     }
 
+    /**
+     * Instancinate the plugin
+     * 
+     * @param mixed $version Plugin current version
+     * @return SubNamespaceNames The plugin main class instance
+     */
     public static function run($version)
     {
         static $instance = false;
@@ -70,9 +103,20 @@ class SubNamespaceNames
         return $instance;
     }
 
+    /**
+     * Function that runs when plugin activated 
+     * 
+     * @return void 
+     */
     public function plugin_activate()
     {
     }
+
+    /**
+     * Function that runs when plugin deactivated
+     * 
+     * @return void 
+     */
     public function plugin_deactivate()
     {
     }

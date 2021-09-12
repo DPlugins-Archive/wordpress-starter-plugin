@@ -3,6 +3,8 @@
 namespace NamespaceName\SubNamespaceNames\Utils;
 
 /**
+ * Some usefull functions for Oxygen Builder
+ * 
  * @since 1.0.0
  * @author YourCompanyName <mail@yourcompanywebsite.com>
  */
