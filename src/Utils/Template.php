@@ -6,10 +6,10 @@ use Exception;
 use League\Plates\Engine;
 
 /**
- * Plate the native PHP template system.
+ * Plate is a native PHP template system.
  * This class is used to run plate on WordPress.
  * 
- * To use this class, you need to include the Medoo library in your project.
+ * To use this class, you need to include the Plate library in your project.
  * Run `composer require league/plates` from your plugin root folder.
  * 
  * Plate's object are available on `Template::template()` method.
